@@ -1,0 +1,157 @@
+<?php
+session_start();
+if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
+	header("location: login.html");
+	exit;
+}
+//$getter = new DBRequest();
+
+?>
+<!Doctype html>
+<html>
+<head>
+	<title>JTM - Join The Movement</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap_extended.css">
+</head>
+<body onload="new Main().LoadProfilePage()">
+<div id="fb-root"></div>
+<script>
+	window.fbAsyncInit = function(){
+	    /*FB.init({
+	      appId      : '280739255953707',
+	      status     : true,
+	      version	 : 'v2.8', 
+	      xfbml      : true
+	    });*/
+	    FB.Event.subscribe('edge.create', function(response) {
+			alert('You just liked '+response);
+		});
+	};
+
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=280739255953707&autoLogAppEvents=1';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="container-fluid bg-light no-gutters p-0" style="color: #000;">
+<div class="row no-gutters justify-content-start">
+	<div class="col">
+		<nav class="navbar navbar-light">
+		  <a class="navbar-brand" href="#">JTM</a>
+		  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+		  	aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+  		</nav>
+		<hr class="m-0">
+	</div>
+</div>
+<div class="row no-gutters justify-content-center">
+
+	<div class="col-sm-7 text-center jtm-form-center mx-1">
+		<h2 class="p-2 pl-3 display-4 text-facebook" style="margin-bottom: 2rem;">
+			<svg class="text-info svg-h2" id="i-user" viewBox="0 0 32 32" width="30" height="30" fill="currentcolor" stroke="none" 
+				stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		    	<path d="M22 11 C22 16 19 20 16 20 13 20 10 16 10 11 10 6 12 3 16 3 20 3 22 6 22 11 Z M4 30 L28 30 C28 21 22 20 16 20 10 20 4 21 4 30 Z" />
+			</svg>
+			twitter Integeration
+		</h2>
+
+		<h6 class="display-7 text-muted mt-4 pt-4 font-italic">Step 1: Like our page by clicking on the like button below.</h6>
+		<div class="card mx-a" style="width: 18rem;min-height: 256px">
+			<div class="card-body">
+			    <div class="fb-page" data-href="https://www.facebook.com/JTM-Join-The-Movement-2729759003914892" data-small-header="false" 
+					data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+					<blockquote cite="https://www.facebook.com/JTM-Join-The-Movement-2729759003914892" class="fb-xfbml-parse-ignore">
+						<a href="https://www.facebook.com/JTM-Join-The-Movement-2729759003914892">JTM - Join The Movement</a>
+					</blockquote>
+				</div>
+				<div class="text-left pt-2">
+					<div class="fb-like" data-href="https://www.facebook.com/JTM-Join-The-Movement-2729759003914892" 
+						data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+				</div>
+			</div>
+		</div>
+
+		<h6 class="display-7 text-muted mt-4 pt-4 font-italic">Step 2: Send your community id as a facebook message to our facebook page</h6>
+
+
+		<small class="text-muted">facebook integration is done manually from our end and sometimes can take upto 24hours <br>
+		 		after which your credit limit will be increased.
+		</small>
+		
+
+
+
+
+
+
+		<div class="text-muted font-italic">
+			Update profile to complete registration,
+			use name as is on bank account to avoid any withdrawal issues
+		</div>
+		<form class="text-left mt-4 mx-2" id="profile-form" onsubmit="return false">
+			<div class="alert alert-danger text-left d-none" id="alert-box" role="alert">
+				Error updating profile, please try again!
+			</div>
+			<div class="form-group">
+			<label for="exampleInputEmail1">Surname</label>
+			<input type="text" class="form-control" id="surname" required placeholder="Surname">
+			</div>
+			<div class="form-group">
+			<label for="exampleInputEmail1">First Name</label>
+			<input type="text" class="form-control" id="first-name" required placeholder="First Name">
+			</div>
+			<div class="form-group">
+			<label for="exampleInputEmail1">Other names (Optional)</label>
+			<input type="text" id="other-names" class="form-control" placeholder="Other names">
+			</div>
+			<div class="form-group">
+		    <label for="exampleInputEmail1">Email</label>
+		    <input type="email" class="form-control" readonly value="email@gmail.com">
+			</div>
+			<div class="form-group">
+		    <label for="exampleFormControlSelect1">Country</label>
+		    <select id="country" class="form-control">
+		      <option value="Nigeria">Nigeria</option>
+		    </select>
+		  	</div>
+		  	<div class="form-group">
+		    <label for="exampleFormControlSelect1">State</label>
+		    <select id="state" class="form-control">
+		      <option disabled selected value="0">&lt;select state&gt;</option>
+		      <option value="Lagos">Lagos</option>
+		    </select>
+		  	</div>
+		  	<div class="form-group">
+			<label for="exampleInputEmail1">Phone</label>
+			<input type="tel" id="phone" class="form-control" required value="+234">
+			</div>
+			<button type="submit" class="btn btn-primary">Update profile</button>
+			<img src="img/loader1.gif" id="submit-loader" class="d-none" alt="o" width="20" height="20">
+			<a id="submit-text" href="javascript:void(0)" style="visibility: hidden" class="ml-1" >edit</a>
+		</form>
+	</div>
+</div>
+</div>
+<!--
+<div class="bg-light">
+	<hr class="m-0">
+	<nav>Toye</nav>
+</div>
+-->
+
+<!--JavaScripts-->
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/popper.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/jtm.js"></script>
+</body>
+</html>

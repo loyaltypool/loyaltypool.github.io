@@ -1,0 +1,84 @@
+<!Doctype html>
+<html>
+<head>
+	<title>JTM - Join The Movement</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap_extended.css">
+</head>
+<body onload="new Main().LoadRegistrationPage(this)">
+<div class="container-fluid bg-white no-gutters p-0">
+<div class="row no-gutters justify-content-start">
+	<div class="col">
+		<div class="row no-gutters">
+			<div class="col-lg-10 mx-a">
+				<nav class="navbar navbar-light">
+				  <a class="navbar-brand" href="#">JTM</a>
+				  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+				  	aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+		  		</nav>
+		  	</div>
+		  </div>
+		  <hr class="m-0">
+	</div>
+</div>
+<div class="row no-gutters justify-content-center">
+	<div class="col text-center jtm-form-center">
+		<h1 style="margin-bottom: 1rem;">Pre.Registration</h1>
+		<div class="text-muted font-italic">
+			Pre-Registration qualifies you for a one time earning of
+			<span class="text-success font-weight-bold font-normal">
+			<span class="text-through">N</span>1000</span>
+			<br>and a 
+			<span class="text-success font-weight-bold font-normal">
+			<span class="text-through">N</span>500</span>
+			continuous community earning
+		</div>
+		<div class="col-sm-7 mx-a pt-2 px-0" style>
+			<form class="pt-2" method="post" id="registration-form" onsubmit="return false;">
+				<div class="alert alert-danger text-left d-none" id="err-alert" role="alert">
+				  Enter a valid email!
+				</div>
+				<div class="input-list-group">
+				  <input class="input-list-item" name="email" id="email" type="email" required placeholder="Email">
+				  <input class="input-list-item" name="password" id="password" type="password" minlength="6" required placeholder="Password">
+				  <input class="input-list-item" name="referral" id="referral" type="text" required="false" placeholder="Referral Code (optional)">
+				  <button type="submit" class="btn btn-block btn-outline-danger input-list-item">
+				  	<img src="img/loader1.gif" id="submit-loader" class="d-none" alt="o" width="20" height="20">
+					<span id="submit-text" class="">Sign up</span>
+				  </button>
+				</div>
+			</form>
+			<div class="m-3">
+				Already have an account?
+				<span class="text-danger text-underline">Log in</span>
+			</div>
+			<small class="text-muted">By joining JTM community, you accept our <a href="#" class="text-muted text-underline">terms of service<a></small>
+			<p><p>
+			<div class="text-right text-white">
+				<div class="pl-3 d-inline-block reCAPTCHA" style="">
+				  <span>protected by reCAPTCHA</span>
+				  <img class="ml-3 p-3 bg-white" src="img/recaptcha_48dp.png" width="64" height="64" alt="reCaptcha">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--
+<div class="bg-light">
+	<hr class="m-0">
+	<nav>Toye</nav>
+</div>
+-->
+
+<!--JavaScripts-->
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/popper.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jtm.js"></script>
+</body>
+</html>

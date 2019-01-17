@@ -1,0 +1,68 @@
+<!Doctype html>
+<html>
+<head>
+	<title>JTM - Join The Movement</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap_extended.css">
+</head>
+<body onload="new Main().LoadLoginPage(this)">
+<div class="container-fluid bg-white no-gutters p-0">
+<div class="row no-gutters justify-content-start">
+	<div class="col">
+		<div class="row no-gutters">
+			<div class="col-lg-10 mx-a">
+				<nav class="navbar navbar-light">
+				  <a class="navbar-brand" href="#">JTM</a>
+				  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+				  	aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+		  		</nav>
+		  	</div>
+		  </div>
+		  <hr class="m-0">
+	</div>
+</div>
+<div class="row no-gutters justify-content-center">
+	<div class="col text-center jtm-form-center">
+		<h1 class="display-5" style="margin-bottom: 1rem;">Login</h1>
+		<div class="col-sm-7 mx-a pt-2 px-0" style>
+			<form class="pt-2" method="post" id="login-form" onsubmit="return false;">
+				<div class="alert alert-danger text-left d-none" id="err-alert" role="alert">
+				  Login failed: Invalid email or password!
+				</div>
+				<div class="input-list-group">
+				  <input class="input-list-item" name="email" id="email" type="email" required placeholder="Email">
+				  <input class="input-list-item" name="password" id="password" type="password" required placeholder="Password">
+				  <button type="submit" class="btn btn-block input-list-item btn-outline-info" style="border-color: #17a2b8">
+				  	<img src="img/loader1.gif" id="submit-loader" class="d-none" alt="o" width="20" height="20">
+					<span id="submit-text" class="">Login</span>
+				  </button>
+				</div>
+			</form>
+			<div class="m-3">
+				Don't have an account?
+				<span class="text-danger text-underline">Sign up</span>
+			</div>
+			<small class="text-muted">By joining JTM community, you accept our <a href="#" class="text-muted text-underline">terms of service<a></small>
+			<p><p>
+		</div>
+	</div>
+</div>
+</div>
+<!--
+<div class="bg-light">
+	<hr class="m-0">
+	<nav>Toye</nav>
+</div>
+-->
+
+<!--JavaScripts-->
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/popper.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jtm.js"></script>
+</body>
+</html>
