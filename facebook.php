@@ -19,13 +19,13 @@ if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
 <body>
 <div id="fb-root"></div>
 <script>
-	(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2';
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 </script>
 
 <div class="container-fluid bg-light no-gutters p-0" style="color: #000;">
@@ -55,14 +55,14 @@ if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
 		<h6 class="display-7 text-muted mt-4 pt-4 font-italic">Step 1: Like our page by clicking on the like button below.</h6>
 		<div class="card mx-a" style="width: 18rem;min-height: 17rem;">
 			<div class="card-body">
-			    <div class="fb-page" data-href="https://www.facebook.com/JTM-Join-The-Movement-2729759003914892" data-small-header="false" 
+			    <div class="fb-page" data-href="https://www.facebook.com/jtmcommunity" data-small-header="false" 
 					data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-					<blockquote cite="https://www.facebook.com/JTM-Join-The-Movement-2729759003914892" class="fb-xfbml-parse-ignore">
-						<a href="https://www.facebook.com/JTM-Join-The-Movement-2729759003914892">JTM - Join The Movement</a>
+					<blockquote cite="https://www.facebook.com/jtmcommunity" class="fb-xfbml-parse-ignore">
+						<a href="https://www.facebook.com/jtmcommunity">JTM - Join The Movement</a>
 					</blockquote>
 				</div>
 				<div class="text-left pt-2">
-					<div class="fb-like" data-href="https://www.facebook.com/JTM-Join-The-Movement-2729759003914892" 
+					<div class="fb-like" data-href="https://www.facebook.com/jtmcommunity" 
 						data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
 				</div>
 			</div>
@@ -89,6 +89,9 @@ if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
 				  	page_id="2729759003914892"
 				  	color="blue"
 				  	size="xlarge">
+				  	<blockquote cite="https://m.me/jtmcommunity" class="fb-xfbml-parse-ignore">
+						<a href="https://m.me/jtmcommunity">JTM - Join The Movement</a>
+					</blockquote>
 				</div>
 			</div>
 		</div>

@@ -43,16 +43,13 @@ if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
 		</h2>
 
 		<h6 class="display-7 text-muted mt-4 pt-4 font-italic">Step 1: Click the button below to follow JTM on twitter</h6>
-		<div class="card mx-a" style="width: 18rem;">
+		<div class="card mx-a" style="">
 			<div class="card-body">
 				<a href="https://twitter.com/jtmcommunity" class="twitter-follow-button" data-size="large" data-lang="en" 
-					data-show-count="true" data-show-screen-name="true">Follow @JTMcommunity</a>
+					data-show-count="false" data-show-screen-name="true">Follow @JTMcommunity</a>
 				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
-
-		<script src="https://apis.google.com/js/platform.js"></script>
-		<div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="full" data-count="default"></div>
 
 		<h6 class="display-7 text-muted mt-4 pb-2 pt-4 font-italic">Step 2: Enter your twitter handle into the box below then click confirm to complete</h6>
 		<div class="input-group mb-4 px-4">
@@ -67,7 +64,7 @@ if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
 		</div>
 		<div class="px-2"><button class="btn bg-twitter text-white btn-lg px-4 ">Confirm</button></div>
 
-		<div class="text-left">
+		<div class="text-center">
 			<small class="text-muted display-small text-left font-italic">twitter integration is done manually from our end 
 				<br>and sometimes can take upto 24hours to increase your credit limit.
 			</small>

@@ -32,6 +32,7 @@ function Main(){
 		}
 		catch(exp){
 			request.Switch(request.text_, request.loader);
+			new Alert().Error("Connection error! Please try again...");
 			return console.log(e);
 		}
 		f(e);
@@ -55,6 +56,7 @@ function HTTPRequest(){
 
 		var email = $("#email").val();
 		var password = $("#password").val();
+		var referral_code = $("#referral-code").val();
 
 		if (!(new Main().validateEmail(email)))
 			return new Alert().Error("Invalid email address!");
@@ -62,6 +64,7 @@ function HTTPRequest(){
 		if (password.length < 6)
 			return new Alert().Error("Minimum password length of 6!");
 
+		//Use BootStrap Spinner
 		this.Switch(this.loader, this.text_);
 
 		$.ajax({
@@ -70,6 +73,7 @@ function HTTPRequest(){
 		    data: {
 		    		"email": email,
 		    		"password": password,
+		    		"referral-code": referral_code,
 		    	  },
 		    success: function(data) {
 		    	request.Success(data);
@@ -129,7 +133,8 @@ function HTTPRequest(){
     			window.location.replace("dashboard.php");
     		}
     		else{
-    			request.Switch(request.text_, request.loader);
+    			//Use bootstrap spinner effect
+  	  			request.Switch(request.text_, request.loader);
     		}
     	});
 	}

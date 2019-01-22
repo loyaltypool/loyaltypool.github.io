@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['email']) && $_SESSION['email'] != ''){
+	header("location: dashboard.php");
+	exit;
+}
+
+/*if (isset($_GET['ref']) && $_GET['ref'] != ''){
+	$_SESSION['ref'] = $_GET['ref'];
+}*/
+?>
 <!Doctype html>
 <html>
 <head>
@@ -86,10 +97,11 @@
 
 
 		<small>Once your application is accepted you instanteously get access to your N6,000 FREE JTM COMMUNITY LOAN.</small>
-		<br><button class="btn btn-outline-success p-2 btn-block my-2 display-10 display-sm-9" style="border-width: 5px;">
-					<img alt="Sign Up" src="img/log-in.png" width="24px" height="24px">
-					<span style="">Get Started!</span>
-				</button>
+		<br>
+		<a href="register.html" class="btn btn-outline-success p-2 btn-block my-2 display-10 display-sm-9" style="border-width: 5px;">
+			<img alt="Sign Up" src="img/log-in.png" width="24px" height="24px">
+			<span style="">Get Started!</span>
+		</a>
 	</div>
 
 </div>
@@ -97,25 +109,25 @@
 <hr>
 <hr>
 <div style="font-family: georgia;box-shadow: 0 0 0 black">
-		<h4 class="text-center">FAQs</h4>
-		<div class="row no-gutters text-left">
-		  	<div class="col-12 col-sm-6 col-md-4 px-2 pb-2">
-		    	<div class="card border-primary text-primary">
-		      		<div class="card-body">
-		        		<h5 class="card-title">What is Free loan?</h5>
-		        		<p class="card-text">
-		        			<small>
-			        			JTM is not focused a credit facility app.
-								We are focused on the familiness and oneness of our community
-								That's why we give out free loans to members of our coummunity.
-								<br>
-								Free Loans are loans where you dont have to pay back with intrest
-								and can pay back at your convienient time.
-		        			</small>
-		        		</p>
-		      		</div>
-		    	</div>
-			</div>
+	<h4 class="text-center">FAQs</h4>
+	<div class="row no-gutters text-left">
+	  	<div class="col-12 col-sm-6 col-md-4 px-2 pb-2">
+	    	<div class="card border-primary text-primary">
+	      		<div class="card-body">
+	        		<h5 class="card-title">What is Free loan?</h5>
+	        		<p class="card-text">
+	        			<small>
+		        			JTM is not focused a credit facility app.
+							We are focused on the familiness and oneness of our community
+							That's why we give out free loans to members of our coummunity.
+							<br>
+							Free Loans are loans where you dont have to pay back with intrest
+							and can pay back at your convienient time.
+	        			</small>
+	        		</p>
+	      		</div>
+	    	</div>
+		</div>
 
 	  	<div class="col-12 col-sm-6 col-md-4 px-2 pb-2">
 		    <div class="card border-success text-success">
@@ -159,10 +171,10 @@
 
 	<div class="px-2 text-center">
 		<small class="text-muted"> Well, enough of the FAQs, go ahead and get started!</small><br>
-		<button class="btn btn-outline-success p-2 btn-sm btn-block my-2 display-10 display-sm-9" style="border-width: 5px;">
+		<a href="register.html" class="btn btn-outline-success p-2 btn-sm btn-block my-2 display-10 display-sm-9" style="border-width: 5px;">
 				<img alt="Sign Up" src="img/log-in.png" width="24px" height="24px">
 				<span style="">Get Started!</span>
-		</button>
+		</a>
 
 		<br><small class="text-muted">Kindly refer every other questions to our facebook community group</small><br>
 		<button class="btn bg-facebook text-white px-4 btn-block display-10 display-sm-9">

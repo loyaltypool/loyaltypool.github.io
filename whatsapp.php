@@ -33,14 +33,21 @@ if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
 <div class="row no-gutters justify-content-center">
 
 	<div class="col-sm-7 text-center jtm-form-center mx-1">
-		<h2 class="p-2 pl-3 display-4 text-youtube" style="margin-bottom: 2rem;">
-			YouTube integeration
+		<h2 class="p-2 pl-3 display-4 text-whatsapp" style="margin-bottom: 2rem;">
+			Whatsapp integeration
 		</h2>
 
-		<h6 class="display-7 text-muted mt-4 pt-4 font-italic">Step 1: Copy your community id from the box below</h6>
+		<h6 class="display-7 text-muted mt-4 pt-4 font-italic">
+			Step 1: Click on the Whatsapp button and save contact as 
+			<br><span class="text-whatsapp">"JTM Community"</span>
+		</h6>
+		<hr>
+		<h6 class="display-7 text-muted pb-4 font-italic">
+			Step 2: Copy your community id below and send as whatsapp msg to us after saving contact
+		</h6>
 		<div class="card mx-a" style="width: 18rem;">
 			<div class="card-body">
-				<div class="input-group mb-4 pb-4">
+				<div class="input-group mb-4">
 				 	<input disabled type="text" class="form-control pl-4" value="id: ABC103F" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-top-right-radius: 0; border-bottom-right-radius: 0">
 					<div class="input-group-append">
 						<button class="btn btn-secondary" type="button" 
@@ -49,20 +56,18 @@ if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
 						</button>
 					</div>
 				</div>
+				<hr>
+				<div class="pb-2">
+					<button class="btn btn-success btn-block text-white px-4 display-10 display-sm-9">
+						<img alt=" " src="img/whatsapp2.png" width="24px" height="24px">
+						<small class="text-dark">+234-808-111-9325</small>
+					</button>
+				</div>
 			</div>
 		</div>
 
-		<!--
-		<script src="https://apis.google.com/js/platform.js"></script>
-				<div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="full" data-count="default"></div>
-		-->
-
-		<h6 class="display-7 text-muted mt-4 pb-2 pt-4 font-italic">Step 2: Subscribe to our youtube channel by clicking the link below and comment your community id on any of our videos on youtube</h6>
-		<script src="https://apis.google.com/js/platform.js"></script>
-		<div class="g-ytsubscribe" data-channelid="UCV9T_XlHz28__NPog_6jDXg" data-layout="full" data-count="hidden"></div>
-
 		<div class="text-center">
-			<small class="text-muted display-small text-left font-italic">youtube integration is done manually from our end 
+			<small class="text-muted display-small text-left font-italic">whatsapp integration is done manually from our end 
 				<br>and sometimes can take upto 24hours to increase your credit limit.
 			</small>
 		</div>

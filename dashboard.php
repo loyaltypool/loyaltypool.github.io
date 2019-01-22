@@ -4,15 +4,15 @@ if (!(isset($_SESSION['email']) && $_SESSION['email'] != '')){
 	header("location: login.html");
 	exit;
 }
+/*
 if (!(isset($_SESSION['profile-updated']) && $_SESSION['profile-updated'] == true)){
 	header("location: profile.html");
 	exit;
-}
+}*/
 
 include_once("script/jtm.php");
 $main = new Main();
-$main->GetUserInfo();
-
+$main->GetUserId();
 ?>
 
 <!Doctype html>
@@ -30,10 +30,17 @@ $main->GetUserInfo();
 	<div class="col">
 		<nav class="navbar navbar-light">
 		  <a class="navbar-brand" href="#">JTM</a>
-		  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+		  <button class="btn btn-link navbar-toggler" style="border: 0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
 		  	aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
+		   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		   	<hr>
+		    <ul class="navbar-nav pl-4 mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link text-primary" href="script/logout.php">Logout</a>
+		      </li>
+		    </ul>
   		</nav>
 		<hr class="m-0">
 		<div class="bg-warning text-white text-center">
@@ -87,18 +94,21 @@ $main->GetUserInfo();
 							    <div class="row no-gutters pb-2">
 					      			<div class="col text-left">
 					      				<small class="text-muted">
-					      					community id: <span class="font-italic">A234YZ</span>
+					      					community id:
+					      					<a href="javascript:void()" class="font-normal text-primary text-underline" style="text-transform: lowercase">
+					      						<?php echo $main->userId;?>
+					      					</a>
 					      				</small>
 					      			</div>
 					      			<div class="col text-right">
 					      				<small class="text-muted">
-					      					credit limit: <span class="font-italic"><span class="text-through">N</span><?php echo $main->creditLimit;?></span>
+					      					loan limit: <span class="font-italic"><span class="text-through">N</span>6000</span>
 					      				</small>
 					      			</div>
 				      			</div>
 
 				      			<h4 class="text-right display-7 font-italic text-success mt-4 pr-1">
-				      				<span class="text-through">N</span><?php echo $main->creditLimit;?>
+				      				<span class="text-through">N</span>6,000
 				      			</h4>
 				      			<div class="progress" style="background-color: rgba(0, 0, 0, 0.1)">
 								  <div class="progress-bar w-0 display-small font-italic text-right" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="color: rgba(255, 255, 255, 0.5)">
@@ -134,9 +144,9 @@ $main->GetUserInfo();
 									</small>
 								  </div>
 							      <div class="card-text mt-3">
-							      	<button class="btn btn-sm btn-block bg-light jtm-card-btn text-facebook">
+							      	<a href="facebook.php" class="btn btn-sm btn-block bg-light jtm-card-btn text-facebook">
 							      		+connect
-							      	</button>
+							      	</a>
 							      </div>
 							    </div>
 							</div>
@@ -155,15 +165,15 @@ $main->GetUserInfo();
 									</small>
 								  </div>
 							      <div class="card-text mt-3">
-							      	<button class="btn btn-sm btn-block bg-light jtm-card-btn text-twitter">
+							      	<a href="twitter.php" class="btn btn-sm btn-block bg-light jtm-card-btn text-facebook">
 							      		+connect
-							      	</button>
+							      	</a>
 							      </div>
 							    </div>
 							</div>
 
 							<div class="col p-1">
-							    <div class="jtm-card jtm-card-instagram d-table mx-a text-center text-light">
+							    <div class="jtm-card bg-instagram d-table mx-a text-center text-light">
 							      <h4 class="card-title">
 							      	instagram
 							      </h4>
@@ -184,7 +194,7 @@ $main->GetUserInfo();
 							</div>
 
 							<div class="col p-1">
-							    <div class="jtm-card jtm-card-youtube d-table mx-a text-center text-light">
+							    <div class="jtm-card bg-youtube d-table mx-a text-center text-light">
 							      <h4 class="card-title">
 							      	youtube
 							      </h4>
@@ -197,9 +207,9 @@ $main->GetUserInfo();
 									</small>
 								  </div>
 							      <div class="card-text mt-3">
-							      	<button class="btn btn-sm btn-block bg-light jtm-card-btn text-youtube">
+							      	<a href="youtube.php" class="btn btn-sm btn-block bg-light jtm-card-btn text-facebook">
 							      		+connect
-							      	</button>
+							      	</a>
 							      </div>
 							    </div>
 							</div>
@@ -218,9 +228,9 @@ $main->GetUserInfo();
 									</small>
 								  </div>
 							      <div class="card-text mt-3">
-							      	<button class="btn btn-sm btn-block bg-light jtm-card-btn text-whatsapp">
+							      	<a href="whatsapp.php" class="btn btn-sm btn-block bg-light jtm-card-btn text-facebook">
 							      		+connect
-							      	</button>
+							      	</a>
 							      </div>
 							    </div>
 							</div>								
@@ -371,9 +381,20 @@ $main->GetUserInfo();
 								</div>
 							</div>
 
-							<h4 class="display-5 font-normal">Referal Link</h4>
+							<h4 class=" font-normal text-info">Referral Code</h4>
 							<div class="input-group mb-4 pb-4">
-							 	<input disabled type="text" class="form-control pl-4" value="https://jtm.com?ref=123zxy" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-top-right-radius: 0; border-bottom-right-radius: 0">
+							 	<input disabled type="text" class="form-control pl-4 text-info" value="<?php echo $main->userId;?>" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-top-right-radius: 0; border-bottom-right-radius: 0">
+								<div class="input-group-append">
+									<button class="btn btn-info" type="button" 
+										style="border-top-left-radius: 0; border-bottom-left-radius: 0">
+										copy
+									</button>
+								</div>
+							</div>
+
+							<h4 class="display-5 font-normal">Referral Link</h4>
+							<div class="input-group mb-4 pb-4">
+							 	<input disabled type="text" class="form-control pl-4" value="https://jtm.com?ref=<?php echo $main->userId;?>" aria-label="Recipient's username" aria-describedby="button-addon2" style="border-top-right-radius: 0; border-bottom-right-radius: 0">
 								<div class="input-group-append">
 									<button class="btn btn-secondary" type="button" 
 										style="border-top-left-radius: 0; border-bottom-left-radius: 0">
@@ -382,13 +403,13 @@ $main->GetUserInfo();
 								</div>
 							</div>
 
-							<h2 class="text-left p-2 pl-3 bg-light jtm-h2-info mt-4" style="margin-bottom: 1rem;">
+							<!--<h2 class="text-left p-2 pl-3 bg-light jtm-h2-info mt-4" style="margin-bottom: 1rem;">
 								<svg class="text-info svg-h2" id="i-user" viewBox="0 0 32 32" width="30" height="30" fill="none"
 									stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
 							    	<path d="M22 11 C22 16 19 20 16 20 13 20 10 16 10 11 10 6 12 3 16 3 20 3 22 6 22 11 Z M4 30 L28 30 C28 21 22 20 16 20 10 20 4 21 4 30 Z" />
 								</svg>
-								Banner
-							</h2>
+								Banners
+							</h2>-->
 				      	</div>
 
 				      	<div class="tab-pane fade" id="profile-tab" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -403,7 +424,7 @@ $main->GetUserInfo();
 								Update profile to complete registration,
 								use name as is on bank account to avoid any withdrawal issues
 							</div>
-							<form class="text-left mt-4 mx-2" id="profile-form" onsubmit="return false">
+							<form class="text-left mt-4 mx-2" disabled id="profile-form" onsubmit="return false">
 								<div class="alert alert-danger text-left d-none" id="alert-box" role="alert">
 									Error updating profile, please try again!
 								</div>
@@ -443,7 +464,7 @@ $main->GetUserInfo();
 								<label for="exampleInputEmail1">Phone</label>
 								<input type="tel" id="phone" class="form-control" required value="<?php echo $main->phone; ?>">
 								</div>
-								<button type="submit" class="btn btn-primary">Update profile</button>
+								<button type="submit" disabled class="btn btn-primary">Update profile</button>
 								<img src="img/loader1.gif" id="submit-loader" class="d-none" alt="o" width="20" height="20">
 								<a id="submit-text" href="javascript:void(0)" style="visibility: hidden" class="ml-1" >edit</a>
 							</form>
